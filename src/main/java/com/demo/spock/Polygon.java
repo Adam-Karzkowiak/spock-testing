@@ -24,7 +24,7 @@ class Polygon {
         if (numberOfSides < 3) {
             throw new TooFewSidesException("Polygon should have at least 3 sides", numberOfSides);
         }
-        var defaultRender = new Renderer();
+        var defaultRender = new Renderer(new Palette(Colour.RED));
         return new Polygon(numberOfSides, defaultRender);
     }
 

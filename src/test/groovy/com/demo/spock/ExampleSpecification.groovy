@@ -78,4 +78,15 @@ class ExampleSpecification extends Specification {
         then:
         4 * renderer.drawLine()
     }
+
+    def "should be able to create a stub"() {
+        given:
+        Palette palette = Stub()
+        palette.getPrimaryColour() >> Colour.RED
+        @Subject
+        def renderer = new Renderer(palette)
+
+        expect:
+        renderer.getForegroundColour() == Colour.RED
+    }
 }

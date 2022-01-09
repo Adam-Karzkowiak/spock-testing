@@ -1,7 +1,17 @@
 package com.demo.spock;
 
 class Renderer {
-    void drawLine() {
 
+    private final Palette foregroundColour;
+
+    Renderer(final Palette foregroundColour) {
+        this.foregroundColour = foregroundColour;
+    }
+
+    Colour getForegroundColour() {
+        return foregroundColour.getPrimaryColour();
+    }
+
+    void drawLine() {
     }
 }
