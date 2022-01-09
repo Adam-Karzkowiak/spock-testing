@@ -5,6 +5,19 @@ import spock.lang.Subject
 
 
 class ExampleSpecification extends Specification {
+
+    @Subject
+    private Polygon polygon = Polygon.of(4)
+
+    void setupSpec() {
+        //setup code that needs to be run once at the start
+    }
+
+    void setup() {
+        // setup code that needs to be run before every test method
+    }
+
+
     def "should be a simple assertion"() {
         expect:
         1 == 1
@@ -12,7 +25,7 @@ class ExampleSpecification extends Specification {
 
     def "should demonstrate given-when-then"() {
         when:
-        int sides = Polygon.of(4).numberOfSides
+        int sides = polygon.numberOfSides
 
         then:
         sides == 4
@@ -135,5 +148,13 @@ class ExampleSpecification extends Specification {
     private void checkDefaultShape(Polygon polygon, Renderer renderer) {
         assert polygon.numberOfSides == 4
         assert polygon.renderer == renderer
+    }
+
+    void cleanup() {
+        // code that tears down things at the end of a test method
+    }
+
+    void cleanupSpec() {
+        // code that tears down everything at the end when all tests have run
     }
 }
