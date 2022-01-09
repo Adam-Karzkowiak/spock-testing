@@ -13,6 +13,10 @@ class Polygon {
         return numberOfSides;
     }
 
+    public Renderer getRenderer() {
+        return renderer;
+    }
+
     public void draw() {
         for (int i = 0; i < numberOfSides; i++) {
             renderer.drawLine();
