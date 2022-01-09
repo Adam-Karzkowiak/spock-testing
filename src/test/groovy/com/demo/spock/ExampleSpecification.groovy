@@ -102,6 +102,36 @@ class ExampleSpecification extends Specification {
         checkDefaultShape(polygon, renderer)
     }
 
+    def "mock test with 'with' keyword"() {
+        given:
+        Renderer renderer = Mock()
+        def shapeFactory = new ShapeFactory(renderer)
+
+        when:
+        def polygon = shapeFactory.createDefaultPolygon()
+
+        then:
+        with(polygon) {
+            numberOfSides == 4
+            renderer == renderer
+        }
+    }
+
+    def "mock test with 'verifyAll' keyword"() {
+        given:
+        Renderer renderer = Mock()
+        def shapeFactory = new ShapeFactory(renderer)
+
+        when:
+        def polygon = shapeFactory.createDefaultPolygon()
+
+        then:
+        verifyAll(polygon) {
+            numberOfSides == 4
+            renderer == renderer
+        }
+    }
+
     private void checkDefaultShape(Polygon polygon, Renderer renderer) {
         assert polygon.numberOfSides == 4
         assert polygon.renderer == renderer
