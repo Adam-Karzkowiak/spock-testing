@@ -14,7 +14,7 @@ class ExampleSpecification extends Specification {
         def polygon = new Polygon(4)
 
         when:
-        int sides = polygon.getNumberOfSides()
+        int sides = polygon.numberOfSides
 
         then:
         sides == 4
