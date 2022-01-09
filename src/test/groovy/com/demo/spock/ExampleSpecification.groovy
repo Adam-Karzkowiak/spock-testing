@@ -10,11 +10,8 @@ class ExampleSpecification extends Specification {
     }
 
     def "should demonstrate given-when-then"() {
-        given:
-        def polygon = new Polygon(4)
-
         when:
-        int sides = polygon.numberOfSides
+        int sides = new Polygon(4).numberOfSides
 
         then:
         sides == 4
