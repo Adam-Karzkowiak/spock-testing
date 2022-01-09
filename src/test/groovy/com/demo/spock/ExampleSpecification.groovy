@@ -25,6 +25,18 @@ class ExampleSpecification extends Specification {
         thrown(TooFewSidesException.class)
     }
 
+    def "should throw TooFewSidesException when wrong number of sides #sides provided for polygon"() {
+        when:
+        Polygon.of(sides)
+
+        then:
+        def exception = thrown(TooFewSidesException)
+        exception.numberOfSides == sides
+
+        where:
+        sides << [-1, 0, 1, 2]
+    }
+
 
     def "should not throw TooFewSidesException when 3 sides provided for polygon"() {
         when:
