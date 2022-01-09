@@ -14,7 +14,10 @@ class Polygon {
     }
 
     public void draw() {
-        renderer.driveLine();
+        for (int i = 0; i < numberOfSides; i++) {
+            renderer.drawLine();
+
+        }
     }
 
     public static Polygon of(final int numberOfSides) {
