@@ -13,8 +13,8 @@ class Polygon {
         return numberOfSides;
     }
 
-    void draw(){
-
+    public void draw() {
+        renderer.driveLine();
     }
 
     public static Polygon of(final int numberOfSides) {
