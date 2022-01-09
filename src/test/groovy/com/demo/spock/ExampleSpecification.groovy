@@ -1,6 +1,7 @@
 package com.demo.spock
 
 import spock.lang.Specification
+import spock.lang.Subject
 
 
 class ExampleSpecification extends Specification {
@@ -65,5 +66,16 @@ class ExampleSpecification extends Specification {
         0 | 0 || 0
     }
 
+    def "should be able to mock a concrete class"() {
+        given:
+        Renderer renderer = Mock()
+        @Subject
+        def polygon = Polygon.of(4, renderer)
 
+        when:
+        polygon.draw()
+
+        then:
+        4 * renderer.drawLine()
+    }
 }
