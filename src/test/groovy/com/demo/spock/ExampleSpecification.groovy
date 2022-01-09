@@ -54,7 +54,7 @@ class ExampleSpecification extends Specification {
         sides << [3, 4, 5, 50]
     }
 
-    def "should use data tables for calculating max"() {
+    def "should use data tables for calculating max. Max of #a and #b is #max"() {
         expect:
         Math.max(a, b) == max
 
