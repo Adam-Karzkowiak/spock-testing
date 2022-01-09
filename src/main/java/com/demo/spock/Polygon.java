@@ -13,7 +13,7 @@ class Polygon {
 
     public static Polygon of(final int numberOfSides) {
         if (numberOfSides < 3) {
-            throw new TooFewSidesException("Polygon should have at least 3 sides");
+            throw new TooFewSidesException("Polygon should have at least 3 sides", numberOfSides);
         }
         return new Polygon(numberOfSides);
     }

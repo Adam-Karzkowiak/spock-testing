@@ -33,4 +33,6 @@ class ExampleSpecification extends Specification {
         then:
         notThrown(TooFewSidesException.class)
     }
+
+
 }
