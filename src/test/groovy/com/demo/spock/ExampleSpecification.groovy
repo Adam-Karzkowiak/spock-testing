@@ -46,5 +46,14 @@ class ExampleSpecification extends Specification {
         notThrown(TooFewSidesException.class)
     }
 
+    def "should be able to create a polygon with #sides sides"() {
+        when:
+        def polygon = Polygon.of(sides)
 
+        then:
+        polygon.numberOfSides == sides
+
+        where:
+        sides << [3, 4, 5, 50]
+    }
 }
